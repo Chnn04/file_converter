@@ -1,0 +1,18 @@
+:root {
+  --page-min-height: calc(100vh - 60px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}
