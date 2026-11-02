@@ -1,0 +1,21 @@
+# Dependabot: solo actualizaciones de seguridad, agrupadas en un PR por repo.
+# - open-pull-requests-limit: 0 apaga los PR de "nueva versión" (no son de seguridad).
+# - Las alertas de seguridad siguen abriendo PR, pero juntas: parches y menores en
+#   un solo PR; una versión mayor sale en un PR aparte, porque puede exigir trabajo.
+# - Next.js se sube a mano (PR propio con build y preview), así que va fuera del grupo.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/Madrid"
+    open-pull-requests-limit: 0
+    groups:
+      seguridad:
+        applies-to: security-updates
+        patterns: ["*"]
+        exclude-patterns: ["next", "eslint-config-next"]
+        update-types: ["minor", "patch"]
